@@ -9,6 +9,7 @@ from algorithms.selection_sort import selection_sort
 from algorithms.insertion_sort import insertion_sort
 from algorithms.merge_sort import merge_sort
 from algorithms.binary_search import binary_search
+from algorithms.quick_sort import quick_sort
 
 def profile_algorithm(func, inputs):
     """Profile execution time and memory for a function with various inputs."""
@@ -60,6 +61,9 @@ if __name__ == '__main__':
     
     print("Profiling Merge Sort...")
     results['Merge Sort'] = profile_algorithm(merge_sort, sort_inputs)
+
+    print("Profiling Quick Sort...")
+    results['Quick Sort'] = profile_algorithm(quick_sort, sort_inputs)
     
     print("Profiling Binary Search...")
     results['Binary Search'] = profile_algorithm(binary_search, search_inputs)
@@ -91,10 +95,10 @@ if __name__ == '__main__':
     plt.tight_layout()
     
     # Plot 2: Sorting algorithms
-    fig2, axes2 = plt.subplots(2, 2, figsize=(14, 10))
+    fig2, axes2 = plt.subplots(2, 3, figsize=(18, 10))
     axes2 = axes2.flatten()
     
-    sorting_algos = ['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Merge Sort']
+    sorting_algos = ['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort']
     
     for idx, name in enumerate(sorting_algos):
         times, memories = results[name]
